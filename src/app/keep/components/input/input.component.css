@@ -1,0 +1,93 @@
+.container{
+    margin: 24px auto 16px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 1px 2px #0009, 0 2px 6px 2px #0000004d;
+    position: relative;
+}
+
+.placeholder {
+    .input {
+      padding: 5px 2px 0px 15px;
+      font-family: "Google Sans Light 2";
+      height: 46px;
+      width: 100%;
+      background-color: #202124;
+      border: 1px solid #5f6368;
+      border-radius: 8px;
+  
+      &:focus-visible {
+        outline-width: 0;
+      }
+  
+      &::placeholder {
+        letter-spacing: 0.00625em;
+        font-family: "Google Sans";
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        color: rgba(255, 255, 255, 0.702);
+      }
+    }
+}
+    
+.check {
+    height: 46px;
+    position: absolute;
+    top: 3px;
+    width: 46px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.54;
+    background-image: url(../../../../assets/images/check.svg);
+    right: 115px;
+
+    &:hover {
+      opacity: 0.87;
+    }
+
+    &.pop::before {
+      top: 45px
+    }
+}
+    
+.paint {
+    height: 46px;
+    position: absolute;
+    top: 3px;
+    width: 46px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.54;
+    background-image: url(../../../../assets/images/paint.svg);
+    right: 60px;
+
+    &:hover {
+        opacity: 0.87;
+      }
+  
+      &.pop::before {
+        top: 45px
+      }
+}
+
+.picture {
+    height: 46px;
+    position: absolute;
+    top: 3px;
+    width: 46px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.54;
+    background-image: url(../../../../assets/images/picture.svg);
+    right: 0px;
+
+    &:hover {
+        opacity: 0.87;
+        }
+
+    &.pop::before {
+    top: 45px
+    }
+}
+    

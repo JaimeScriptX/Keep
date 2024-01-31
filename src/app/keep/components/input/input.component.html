@@ -1,0 +1,34 @@
+<div #main [class.container]="!isEditing">
+    <div #notePlaceholder class="placeholder">
+        <input class="input" placeholder="Añade una nota..." type="text">
+        <div class="check H pop" data-pop="New list"></div>
+        <div class="paint H disabled pop" data-pop="New note with drawing"></div>
+        <div class="picture H disabled" data-pop="New note with image"></div>
+    </div>
+        <!--? new note -->
+    <div #noteMain class="note-main" hidden>
+        <div #noteContainer class="note-container">
+            <div [hidden]="noteTitle.innerHTML.length" class="note-title ph"> Title</div>
+            <div #noteTitle (input)="updateInputLength({title:noteTitle.innerHTML.length})" (paste)="pasteEvent($event)"
+                class="note-title" contenteditable="true" spellcheck="true">
+            </div>
+            <!--? note OR checkboxes -->
+            <ng-container [ngTemplateOutlet]="isCbox.value ? checkboxesTemplate : noteTemplate">
+            </ng-container>
+            <!--? labels -->
+            <div class="labels-container">
+                <ng-container *ngFor="let label of labels">
+                    <div class="label-container" *ngIf="label.added">
+                        <div class="label"><span>{{label.name}}</span>
+                            <div class="cancel-icon" (click)="label.added = !label.added"></div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div #notePin data-pinned="false" [class.pinned]="notePin.dataset['pinned'] === 'true'" class="pin-icon H pop"
+            (click)="notePin.dataset['pinned'] === 'false' ? notePin.dataset['pinned']='true': notePin.dataset['pinned']='false'"
+            [attr.data-pop]="notePin.dataset['pinned'] === 'false' ? 'Pin note':'Unpin note' ">
+        </div>
+    </div>
+</div>
